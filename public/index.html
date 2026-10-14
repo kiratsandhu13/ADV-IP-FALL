@@ -8,7 +8,8 @@
   <h1>Ticket Tracker</h1>
   <p>Report a problem and track it until it is fixed.</p>
 
-  <form method="post" action="/tickets">
+  <!-- form to create a ticket; multipart/form-data is needed to send a file -->
+  <form method="post" action="/tickets" enctype="multipart/form-data">
     <label>Title</label>
     <input type="text" name="title" required>
 
@@ -29,9 +30,12 @@
     <label>Description</label>
     <textarea name="description"></textarea>
 
+    <label>Attachment (optional, PNG, JPG or PDF, max 2 MB)</label>
+    <input type="file" name="attachment">
+
     <button type="submit">Submit ticket</button>
   </form>
 
-  <p><a href="/tickets">View all tickets</a></p>
+  <p><a href="/tickets">View all tickets</a> | <a href="/dashboard.html">Dashboard</a></p>
 </body>
 </html>
