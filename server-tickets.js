@@ -168,5 +168,18 @@ app.patch("/api/tickets/:id/status", (req, res) => {
   res.json({ ok: true });
 });
 
+
+
+// 404 handler: runs only if no route above matched the URL
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
+});
+
+// 500 handler: runs when a route throws an error
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).sendFile(path.join(__dirname, "public", "500.html"));
+});
+
 // start the server
 app.listen(PORT, "0.0.0.0", () => console.log(`Listening on ${PORT}`));
