@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticket Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Ticket Tracker</h1>
+  <p>Report a problem and track it until it is fixed.</p>
+
+  <form method="post" action="/tickets">
+    <label>Title</label>
+    <input type="text" name="title" required>
+
+    <label>Category</label>
+    <select name="category">
+      <option>IT</option>
+      <option>Facilities</option>
+      <option>Field Maintenance</option>
+    </select>
+
+    <label>Priority</label>
+    <select name="priority">
+      <option>low</option>
+      <option>medium</option>
+      <option>high</option>
+    </select>
+
+    <label>Description</label>
+    <textarea name="description"></textarea>
+
+    <button type="submit">Submit ticket</button>
+  </form>
+
+  <p><a href="/tickets">View all tickets</a></p>
+</body>
+</html>
